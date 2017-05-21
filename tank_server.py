@@ -1,5 +1,8 @@
 import sys
 import argparse
+import socket
+import threading
+import select
 
 
 def args_process():
@@ -10,12 +13,14 @@ def args_process():
                         help='port for player 2.')
     parser.add_argument('mapfile',
                         help='map file to play.')
-    return parser.parse_args()
+    args = vars(parser.parse_args())
+
+    return args
     pass
 
 
 def main():
-    args = args_process()
+    args = args_process() # get arg by dicts
     print(args)
 
     pass
